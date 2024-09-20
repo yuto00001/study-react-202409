@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
 
-## Getting Started
+## 参考サイト等
 
-First, run the development server:
+### 公式ドキュメント
+- [Next.js 公式ドキュメント](https://nextjs.org/docs)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 記事
+- [【初心者向け】Next.jsでpagesがなくなって絶望しているあなたへ](https://qiita.com/mu_tomoya/items/7545bea039e82e483f9e)
+- [ざっくりApp Router入門【Next.js】](https://zenn.dev/yamadadayo123/articles/6cb4f586de0183)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### YouTube
+- [Next.js 13入門 AppRouter対応](https://www.youtube.com/watch?v=lO-Ulx1rclk)
+- [Next.jsで学ぶReact講座 #1~17](https://youtu.be/15WLMqnkPsE?si=v_Ubjjz7EX16TEkA)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## App Router (Next.js v13以降) について
 
-## Learn More
+### 特別な意味を持つファイルができた
+App Routerでは、`app`直下の`page.tsx`ファイルだけがルーティングの対象となる。
+(Page Routerでは`pages`直下につくったファイルがすべてルーティングされていた。)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### すべてサーバーコンポーネント (RSC) になった
+ファイルの先頭に`"use client"`と書くことで、クライアントコンポーネントにすることも可能。
+サーバーコンポーネント = 先にサーバー側でレンダリングしてクライアントに送るコンポーネント。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### プライベートフォルダ
+ディレクトリ名の先頭に`_`をつけることで、そのディレクトリはルーティングから除外される。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### どんなときに使うか
+1. 共通コンポーネントやユーティリティをまとめたいとき。
+アンダースコア付きディレクトリに配置すれば、ルーティング対象外になり、URLにアクセスされなくなる。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. スタイルシートや型定義ファイル
+
+**例:**
+_components
+_utils
+_styles
+_types
+
+---
+
+## Server Actions (※これの便利さがまだイメージできていない)
+
+一言でいうと「クライアント側のコードにサーバー側のコードを直接書ける機能」
+[詳細はこちら](https://nextjs.org/blog/next-13-4#server-actions-alpha)
+
+> **引用**
+> "ヤバイですよねこれ。異次元の便利さです。
+> 現時点でまだαなので本番で使うのは厳しいですが、stabledになったら小規模～中規模くらいのプロジェクトは「もう全部Next.jsでいいじゃん」となるかもなので、「こういうのがあるんだな」くらいには知っておいた方が良いと思います。"
+
+[動画解説](https://youtu.be/gircIiBIopA?si=KQdyYI4LXDQ1ZZcI)
+
+---
+
+## 4種類のキャッシュ
+![キャッシュの種類](https://storage.googleapis.com/zenn-user-upload/59c138fd06bf-20230916.webp)
+
+---
+
+## Sassのインストールについて
+
+Next.js公式ドキュメント: [Sassのインストール](https://nextjs.org/docs/app/building-your-application/styling/sass)
