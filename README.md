@@ -1,5 +1,3 @@
----
-
 ## 参考サイト等
 
 ### 公式ドキュメント
@@ -13,7 +11,6 @@
 - [Next.js 13入門 AppRouter対応](https://www.youtube.com/watch?v=lO-Ulx1rclk)
 - [Next.jsで学ぶReact講座 #1~17](https://youtu.be/15WLMqnkPsE?si=v_Ubjjz7EX16TEkA)
 
----
 
 ## App Router (Next.js v13以降) について
 
@@ -21,13 +18,9 @@
 App Routerでは、`app`直下の`page.tsx`ファイルだけがルーティングの対象となる。
 (Page Routerでは`pages`直下につくったファイルがすべてルーティングされていた。)
 
----
-
 ### すべてサーバーコンポーネント (RSC) になった
 ファイルの先頭に`"use client"`と書くことで、クライアントコンポーネントにすることも可能。
 サーバーコンポーネント = 先にサーバー側でレンダリングしてクライアントに送るコンポーネント。
-
----
 
 ### プライベートフォルダ
 ディレクトリ名の先頭に`_`をつけることで、そのディレクトリはルーティングから除外される。
@@ -39,12 +32,11 @@ App Routerでは、`app`直下の`page.tsx`ファイルだけがルーティン�
 2. スタイルシートや型定義ファイル
 
 **例:**
-_components
-_utils
-_styles
+_components 
+_utils 
+_styles 
 _types
 
----
 
 ## Server Actions (※これの便利さがまだイメージできていない)
 
@@ -57,12 +49,10 @@ _types
 
 [動画解説](https://youtu.be/gircIiBIopA?si=KQdyYI4LXDQ1ZZcI)
 
----
 
 ## 4種類のキャッシュ
 ![キャッシュの種類](https://storage.googleapis.com/zenn-user-upload/59c138fd06bf-20230916.webp)
 
----
 
 ## Sassのインストールについて
 
